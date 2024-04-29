@@ -3,14 +3,16 @@
 --- Definition file for the SND-ex addon's Lua functions.
 --- Taken from the SND-ex addon's source code in C#.
 
---- Action Commands
+----------------------------------------
+--- Action Commands --------------------
+----------------------------------------
 
 ---Leaves the current duty.
 ---@return nil
 function LeaveDuty() end
 
 ---Teleports to the player's Grand Company city.
----@param useTickets boolean Use return tickets if available (default: False).
+---@param useTickets? boolean Use return tickets if available (default: False).
 ---@return nil
 function TeleportToGCTown(useTickets) end
 
@@ -66,7 +68,10 @@ function ExecuteAction(actionID) end
 function ExecuteGeneralAction(actionID) end
 
 
---- Addon Commands
+
+----------------------------------------
+--- Addon Commands ---------------------
+----------------------------------------
 
 ---Opens a duty from the Duty Finder roulette.
 ---@param contentRouletteID integer The roulette ID.
@@ -190,7 +195,10 @@ function GetSelectIconStringText(index) end
 function GetNodeListCount(addonName) end
 
 
---- CharacterStateCommands
+
+----------------------------------------
+--- CharacterStateCommands -------------
+----------------------------------------
 
 ---Check if the player character is available.
 ---@return boolean
@@ -223,7 +231,7 @@ function GetStatusSourceID(statusID) end
 
 ---Check if the player character has a specific condition or not.
 ---@param flagID integer The condition flag ID.
----@param hasCondition boolean Check if the player character has or has not the condition.
+---@param hasCondition? boolean Check if the player character has or has not the condition. Default is true.
 ---@return boolean
 function GetCharacterCondition(flagID, hasCondition) end
 
@@ -281,23 +289,23 @@ function GetMP() end
 ---@return integer
 function GetMaxMP() end
 
----Get the player character's raw X position.
----@param character string The character name or ID (default: "").
+---Get a character's raw X position.
+---@param character? string The character name or ID (default: "" for the player character).
 ---@return number
 function GetPlayerRawXPos(character) end
 
----Get the player character's raw Y position.
----@param character string The character name or ID (default: "").
+---Get a character's raw Y position.
+---@param character? string The character name or ID (default: "" for the player character).
 ---@return number
 function GetPlayerRawYPos(character) end
 
----Get the player character's raw Z position.
----@param character string The character name or ID (default: "").
+---Get a character's raw Z position.
+---@param character? string The character name or ID (default: "" for the player character).
 ---@return number
 function GetPlayerRawZPos(character) end
 
 ---Get the player character's level.
----@param expArrayIndex integer The experience array index (default: -1).
+---@param expArrayIndex? integer The experience array index (default: -1).
 ---@return integer
 function GetLevel(expArrayIndex) end
 
@@ -378,7 +386,10 @@ function SetFlamesGCRank(rank) end
 function SetAddersGCRank(rank) end
 
 
---- Crafting Commands
+
+----------------------------------------
+--- Crafting Commands ------------------
+----------------------------------------
 
 ---Check if the player character is crafting.
 ---@return boolean
@@ -492,7 +503,10 @@ function GetQualityIncrease(actionID) end
 function GetActionResult(actionID) end
 
 
---- Entity State Commands
+
+----------------------------------------
+--- Entity State Commands --------------
+----------------------------------------
 
 ---Get the player's distance to a specific 3D-point.
 ---@param x number The X-coordinate.
@@ -829,7 +843,10 @@ function IsPartyMemberInCombat(index) end
 function GetBuddyTimeRemaining() end
 
 
---- Internal Commands
+
+----------------------------------------
+--- Internal Commands ------------------
+----------------------------------------
 
 ---Get a macro's text.
 ---@param name string The macro's name.
@@ -848,7 +865,10 @@ function SetSNDProperty(key, value) end
 function GetSNDProperty(key) end
 
 
---- Inventory Commands
+
+----------------------------------------
+--- Inventory Commands -----------------
+----------------------------------------
 
 ---Get the amount of an item in the player's inventory.
 ---@param itemID integer The item ID.
@@ -861,7 +881,10 @@ function GetItemCount(itemID, includeHQ) end
 function GetInventoryFreeSlotCount() end
 
 
---- Ipc Commands
+
+----------------------------------------
+--- Ipc Commands -----------------------
+----------------------------------------
 
 ---Pandora's Box: Check if a feature is enabled.
 ---@param feature string The feature name.
@@ -1138,7 +1161,10 @@ function PauseTextAdvance() end
 function RestoreTextAdvance() end
 
 
---- Quest Commands
+
+----------------------------------------
+--- Quest Commands ---------------------
+----------------------------------------
 
 ---Get the quest name by ID.
 ---@param id integer The quest ID.
@@ -1166,7 +1192,10 @@ function GetQuestSequence(id) end
 function GetQuestIDByName(name) end
 
 
---- System Commands
+
+----------------------------------------
+--- System Commands --------------------
+----------------------------------------
 
 ---Get the clipboard text.
 ---@return string
@@ -1197,7 +1226,10 @@ function LogDebug(text) end
 function LogVerbose(text) end
 
 
---- World State Commands
+
+----------------------------------------
+--- World State Commands ---------------
+----------------------------------------
 
 ---Get the current zone ID.
 ---@return integer
@@ -1416,7 +1448,10 @@ function GetTrapLocations() end
 function GetNearbyObjectNames(distance, objectKind) end
 
 
---- Yield
+
+----------------------------------------
+--- Yield Command ----------------------
+----------------------------------------
 
 ---Main command, yields commands back to the macro engine:
 ---yield(""/echo done!"")

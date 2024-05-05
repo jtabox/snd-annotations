@@ -158,9 +158,9 @@ function IsAddonVisible(addonName) end
 
 ---Check if one or more addon nodes are visible.
 ---@param addonName string The addon name.
----@param ids integer[] The node IDs.
+---@param ... integer The node IDs.
 ---@return boolean
-function IsNodeVisible(addonName, ids) end
+function IsNodeVisible(addonName, ...) end
 
 ---Check if an addon is ready to use (it doesn't need to be visible too).
 ---@param addonName string The addon name.
@@ -169,15 +169,15 @@ function IsAddonReady(addonName) end
 
 ---Get a toast addon's node's text.
 ---@param index integer The node's zero-based index.
----@param nodeNumbers integer[] The node's ID chain.
+---@param ... integer The node's ID chain.
 ---@return string
-function GetToastNodeText(index, nodeNumbers) end
+function GetToastNodeText(index, ...) end
 
 ---Get an addon's node's text.
 ---@param addonName string The addon name.
----@param nodeNumbers integer[] The node's ID chain.
+---@param ... integer The node's ID chain.
 ---@return string
-function GetNodeText(addonName, nodeNumbers) end
+function GetNodeText(addonName, ...) end
 
 ---Get the text of a 0-indexed SelectString entry, or an empty string.
 ---@param index integer The entry index.
@@ -236,7 +236,7 @@ function GetStatusSourceID(statusID) end
 function GetCharacterCondition(flagID, hasCondition) end
 
 ---Get the player character's name.
----@param includeWorld boolean Include the world name (default: False).
+---@param includeWorld? boolean Include the world name (default: False).
 ---@return string
 function GetCharacterName(includeWorld) end
 
@@ -1454,7 +1454,7 @@ function GetNearbyObjectNames(distance, objectKind) end
 ----------------------------------------
 
 ---Main command, yields commands back to the macro engine:
----yield(""/echo done!"")
+---yield("/echo done!")
 ---@param command string The command to yield.
----@return nil
+---@return boolean
 function yield(command) end
